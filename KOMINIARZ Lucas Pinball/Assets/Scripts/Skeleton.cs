@@ -13,6 +13,7 @@ public class Skeleton : MonoBehaviour
     public int entier;
     private void OnTriggerEnter(Collider other)
     {
+        GetComponent<AudioSource>().Play();
         if (entier > 4)
         {
             entier = 0;

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -16,6 +18,7 @@ public class DeathZone : MonoBehaviour
     public bool dontShoot;
     public GameObject ball;
     public StopBall stop;
+    public GameObject takeDamage;
 
     public void Restart()
     {
@@ -31,6 +34,7 @@ public class DeathZone : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        GetComponent<AudioSource>().Play();
         vies -= 1;
         if (vies == 2)
         {
@@ -59,6 +63,16 @@ public class DeathZone : MonoBehaviour
             
         }
         
+        StartCoroutine(ShowDamageEffect());
         
+        
+        IEnumerator ShowDamageEffect()
+        {
+            takeDamage.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            takeDamage.SetActive(false);
+        }
+
+
     }
 }
