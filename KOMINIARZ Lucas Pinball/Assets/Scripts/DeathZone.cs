@@ -9,17 +9,23 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    public int vies;
-    public GameObject heart1;
-    public GameObject heart2;
-    public GameObject heart3;
-    public Vector3 originPosition;
-    public GameObject gameOver;
+    private int vies = 3;
+    [SerializeField] private GameObject heart1;
+    [SerializeField] private GameObject heart2;
+    [SerializeField] private GameObject heart3;
+    [SerializeField] private Vector3 originPosition;
+    [SerializeField] private GameObject gameOver;
     public bool dontShoot;
-    public GameObject ball;
+    [SerializeField] private GameObject ball;
     public StopBall stop;
-    public GameObject takeDamage;
-
+    [SerializeField] private GameObject takeDamage;
+    [SerializeField] private Score scoreReference;
+    [SerializeField] private GameObject hudScore;
+        
+    private void Start()
+    {
+        scoreReference = FindObjectOfType<Score>();
+    }
     public void Restart()
     {
         heart1.SetActive(true);
@@ -30,6 +36,8 @@ public class DeathZone : MonoBehaviour
         gameOver.SetActive(false);
         ball.transform.position = originPosition;
         stop.canActivate = true;
+        scoreReference.UpdateScore(scoreReference.score = 0);
+        hudScore.SetActive(true);
     }
     
     private void OnTriggerEnter(Collider other)
@@ -52,16 +60,17 @@ public class DeathZone : MonoBehaviour
         if (vies > 0)
         {
             dontShoot = false;
-            other.transform.position = originPosition;
         }
         else
         {
             stop.canActivate = false;
             dontShoot = true;
             gameOver.SetActive(true);
-            other.transform.position = originPosition;
-            
+            hudScore.SetActive(false);
         }
+        ball.GetComponent<Rigidbody>().isKinematic = true;
+        other.transform.position = originPosition;
+        ball.GetComponent<Rigidbody>().isKinematic = false;
         
         StartCoroutine(ShowDamageEffect());
         

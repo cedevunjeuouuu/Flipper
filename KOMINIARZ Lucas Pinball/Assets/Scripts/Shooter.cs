@@ -6,14 +6,14 @@ using UnityEngine.UIElements;
 
 public class Shooter : MonoBehaviour
 {
-    public float     decal;
-    public float     accel;
-    public float     loadingSpeed = 1;
-    public KeyCode   key          = KeyCode.Space;
-    public Rigidbody rb;
-    public float soundDelay;
+    [SerializeField] private float decal;
+    [SerializeField] private float accel;
+    [SerializeField] private float loadingSpeed = 1;
+    [SerializeField] private KeyCode key = KeyCode.Space;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private float soundDelay;
     public bool canshoot = false;
-    public DeathZone deathZone;
+    [SerializeField] private DeathZone deathZone;
     
     public void Shoot()
     {
