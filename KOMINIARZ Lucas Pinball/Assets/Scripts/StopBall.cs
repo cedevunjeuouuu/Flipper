@@ -32,4 +32,18 @@ public class StopBall : MonoBehaviour
             
         }
     }
+
+    public void Continue()
+    {
+        menu.SetActive(false);
+        Time.timeScale = 1;
+        stop = false;
+    }
+
+    public void Stop()
+    {
+        menu.SetActive(true);
+        Time.timeScale = 0;
+        stop = true;
+    }
 }

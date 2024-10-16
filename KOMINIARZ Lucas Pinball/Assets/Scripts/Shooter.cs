@@ -14,6 +14,8 @@ public class Shooter : MonoBehaviour
     [SerializeField] private float soundDelay;
     public bool canshoot = false;
     [SerializeField] private DeathZone deathZone;
+    [SerializeField] private GameObject shooterParent;
+    [SerializeField] private bool reload;
     
     public void Shoot()
     {

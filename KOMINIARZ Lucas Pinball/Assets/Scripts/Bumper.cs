@@ -8,7 +8,7 @@ public class Bumper : MonoBehaviour
     [SerializeField] private new bool animation ;
     [SerializeField] private float strength = 1;
     [SerializeField] private Animation anim;
-    [SerializeField] private int points;
+    public int points;
 
     private void Start()
     {

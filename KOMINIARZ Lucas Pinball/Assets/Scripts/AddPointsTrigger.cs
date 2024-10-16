@@ -6,7 +6,7 @@ using UnityEngine;
 public class AddPointsTrigger : MonoBehaviour
 {
     [SerializeField] private Score scoreReference;
-    [SerializeField] private int points;
+    public int points;
     private void Start()
     {
         scoreReference = FindObjectOfType<Score>();

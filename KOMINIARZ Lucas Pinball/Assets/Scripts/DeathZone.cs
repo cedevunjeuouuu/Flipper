@@ -21,6 +21,7 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private GameObject takeDamage;
     [SerializeField] private Score scoreReference;
     [SerializeField] private GameObject hudScore;
+    [SerializeField] private new GameObject camera;
         
     private void Start()
     {
@@ -43,6 +44,7 @@ public class DeathZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GetComponent<AudioSource>().Play();
+        camera.GetComponent<Animation>().Play();
         vies -= 1;
         if (vies == 2)
         {
@@ -68,10 +70,8 @@ public class DeathZone : MonoBehaviour
             gameOver.SetActive(true);
             hudScore.SetActive(false);
         }
-        ball.GetComponent<Rigidbody>().isKinematic = true;
-        other.transform.position = originPosition;
-        ball.GetComponent<Rigidbody>().isKinematic = false;
-        
+        Instantiate(ball, originPosition,Quaternion.identity);
+        Destroy(other);
         StartCoroutine(ShowDamageEffect());
         
         
