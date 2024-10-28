@@ -5,10 +5,12 @@ using UnityEngine;
 public class StopBall : MonoBehaviour
 
 {
-    public KeyCode key;
+    [SerializeField] KeyCode key;
     public bool stop;
-    public GameObject menu;
+    [SerializeField] GameObject menu;
     public bool canActivate;
+    [SerializeField] private UiManager uiManagerReference;
+    
 
     void Update()
     {
@@ -18,14 +20,12 @@ public class StopBall : MonoBehaviour
             {
                 if (stop == true)
                 {
-                    menu.SetActive(false);
-                    Time.timeScale = 1;
+                    uiManagerReference.GameState(3);
                     stop = false;
                 }
                 else
                 {
-                    menu.SetActive(true);
-                    Time.timeScale = 0;
+                    uiManagerReference.GameState(4);
                     stop = true;
                 }
             }
@@ -33,17 +33,13 @@ public class StopBall : MonoBehaviour
         }
     }
 
-    public void Continue()
+    public void CanActive()
     {
-        menu.SetActive(false);
-        Time.timeScale = 1;
-        stop = false;
+        canActivate = true;
+    }
+    public void CantActive()
+    {
+        canActivate = false;
     }
 
-    public void Stop()
-    {
-        menu.SetActive(true);
-        Time.timeScale = 0;
-        stop = true;
-    }
 }

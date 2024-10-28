@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -15,13 +16,15 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private GameObject heart3;
     [SerializeField] private Vector3 originPosition;
     [SerializeField] private GameObject gameOver;
-    public bool dontShoot;
     [SerializeField] private GameObject ball;
     public StopBall stop;
     [SerializeField] private GameObject takeDamage;
     [SerializeField] private Score scoreReference;
     [SerializeField] private GameObject hudScore;
     [SerializeField] private new GameObject camera;
+    [SerializeField] private UiManager uiManagerReference;
+    [SerializeField] private Vector3 deathZonePosition;
+    private GameObject ballClone;
         
     private void Start()
     {
@@ -29,22 +32,13 @@ public class DeathZone : MonoBehaviour
     }
     public void Restart()
     {
-        heart1.SetActive(true);
-        heart2.SetActive(true);
-        heart3.SetActive(true);
-        vies = 3;
-        dontShoot = false;
-        gameOver.SetActive(false);
-        ball.transform.position = originPosition;
-        stop.canActivate = true;
-        scoreReference.UpdateScore(scoreReference.score = 0);
-        hudScore.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
     private void OnTriggerEnter(Collider other)
     {
         GetComponent<AudioSource>().Play();
-        camera.GetComponent<Animation>().Play();
+        
         vies -= 1;
         if (vies == 2)
         {
@@ -59,21 +53,18 @@ public class DeathZone : MonoBehaviour
             heart3.SetActive(false);
         } 
         
+        if (vies <= 0)
+        {
+            stop.CantActive();
+            uiManagerReference.GameState(5);
+        }
+        ballClone = Instantiate(ball, originPosition,Quaternion.identity);
+        Destroy(other);
         if (vies > 0)
         {
-            dontShoot = false;
+            camera.GetComponent<Animation>().Play();
+            StartCoroutine(ShowDamageEffect());
         }
-        else
-        {
-            stop.canActivate = false;
-            dontShoot = true;
-            gameOver.SetActive(true);
-            hudScore.SetActive(false);
-        }
-        Instantiate(ball, originPosition,Quaternion.identity);
-        Destroy(other);
-        StartCoroutine(ShowDamageEffect());
-        
         
         IEnumerator ShowDamageEffect()
         {
