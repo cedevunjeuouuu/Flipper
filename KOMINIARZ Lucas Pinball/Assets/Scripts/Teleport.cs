@@ -12,9 +12,12 @@ public class Teleport : MonoBehaviour
     [SerializeField] private new GameObject camera;
     [SerializeField] private Vector3 posCam;
     [SerializeField] private Vector3 newPosition1;
-    
+    [SerializeField] private GameObject ball;
+
     private void OnTriggerEnter(Collider other)
     {
+        ball.GetComponent<Rigidbody>().isKinematic = true;
+        ball.GetComponent<Rigidbody>().isKinematic = false;
         other.transform.position = newPosition1;
         lights1.SetActive(false); 
         lights2.SetActive(true); 
