@@ -1,12 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
-using UnityEditor.Build.Content;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathZone : MonoBehaviour
 {
@@ -24,7 +18,6 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private new GameObject camera;
     [SerializeField] private UiManager uiManagerReference;
     [SerializeField] private Vector3 deathZonePosition;
-    private GameObject ballClone;
         
     private void Start()
     {
@@ -58,7 +51,7 @@ public class DeathZone : MonoBehaviour
             stop.CantActive();
             uiManagerReference.GameState(5);
         }
-        ballClone = Instantiate(ball, originPosition,Quaternion.identity);
+        Instantiate(ball, originPosition,Quaternion.identity);
         Destroy(other);
         if (vies > 0)
         {

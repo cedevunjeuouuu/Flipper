@@ -22,7 +22,7 @@ public class Bumper : MonoBehaviour
         GetComponent<AudioSource>().Play();
         if (animation)
         {
-            anim.Play("Bumper Bump");
+            anim.Play();
         }
     }
 }

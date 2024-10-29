@@ -6,10 +6,10 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     // déclaration des variables
-    public float targetPosition = 75f;
-    public float originPosition = 0f;
+    [SerializeField]private float targetPosition = 75f;
+    [SerializeField]private float originPosition = 0f;
 
-    public new HingeJoint hingeJoint;
+    [SerializeField]private new HingeJoint hingeJoint;
     private JointSpring jointSpring;
 
     public KeyCode key;
