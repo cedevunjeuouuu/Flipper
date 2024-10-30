@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +10,8 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private GameObject heart2;
     [SerializeField] private GameObject heart3;
     [SerializeField] private Vector3 originPosition;
+    [SerializeField] private Vector3 originCamPosition;
     [SerializeField] private GameObject gameOver;
-    [SerializeField] private GameObject ball;
     public StopBall stop;
     [SerializeField] private GameObject takeDamage;
     [SerializeField] private Score scoreReference;
@@ -18,6 +19,8 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private new GameObject camera;
     [SerializeField] private UiManager uiManagerReference;
     [SerializeField] private Vector3 deathZonePosition;
+    [SerializeField] private Skeleton skeleton;
+    [SerializeField] private GameObject ball;
         
     private void Start()
     {
@@ -25,7 +28,18 @@ public class DeathZone : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        vies = 3;
+        heart1.SetActive(true);
+        heart2.SetActive(true);
+        heart3.SetActive(true);
+        skeleton.skeletonPosition = 0;
+        ball.transform.SetPositionAndRotation(originPosition,quaternion.identity);
+        ball.GetComponent<Rigidbody>().isKinematic = true;
+        ball.GetComponent<Rigidbody>().isKinematic = false;
+        scoreReference.UpdateScore(- scoreReference.score);
+        scoreReference.score = 0;
+        camera.transform.position = originCamPosition;
+        uiManagerReference.GameState(3);
     }
     
     private void OnTriggerEnter(Collider other)
@@ -51,8 +65,9 @@ public class DeathZone : MonoBehaviour
             stop.CantActive();
             uiManagerReference.GameState(5);
         }
-        Instantiate(ball, originPosition,Quaternion.identity);
-        Destroy(other);
+        other.transform.SetPositionAndRotation(originPosition,quaternion.identity);
+        other.GetComponent<Rigidbody>().isKinematic = true;
+        other.GetComponent<Rigidbody>().isKinematic = false;
         if (vies > 0)
         {
             camera.GetComponent<Animation>().Play();

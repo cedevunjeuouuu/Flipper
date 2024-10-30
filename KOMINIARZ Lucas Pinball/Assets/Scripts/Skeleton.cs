@@ -6,34 +6,34 @@ using UnityEngine.UIElements;
 
 public class Skeleton : MonoBehaviour
 {
-    public Vector3 position1; 
-    public Vector3 position2;
-    public Vector3 position3;
-    public Vector3 position4;
-    public int entier;
+    [SerializeField] private Vector3 position1; 
+    [SerializeField] private Vector3 position2;
+    [SerializeField] private Vector3 position3;
+    [SerializeField] private Vector3 position4;
+    public int skeletonPosition;
     private void OnTriggerEnter(Collider other)
     {
         GetComponent<AudioSource>().Play();
-        if (entier > 2)
+        if (skeletonPosition > 2)
         {
-            entier = 0;
+            skeletonPosition = 0;
         }
         else
         {
-            entier += 1;
+            skeletonPosition += 1;
         }
         
-        if (entier == 0)
+        if (skeletonPosition == 0)
         {    
             transform.position = position1;
         }
 
-        else if (entier == 1)
+        else if (skeletonPosition == 1)
         {
             transform.position = position2;
         }
 
-        else if (entier == 2)
+        else if (skeletonPosition == 2)
         {
             transform.position = position3; 
         }
