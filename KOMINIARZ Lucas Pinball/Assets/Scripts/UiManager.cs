@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
@@ -9,10 +12,46 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject takeDamage;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject hud;
+    [SerializeField] KeyCode key;
+    public bool stop;
+    public bool canActivate;
+    [SerializeField] private SetActive setActiveReference;
+    [SerializeField] private GameObject blackPanel;
+
     
     private void Start()
     {
         GameState(3);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(key))
+        {
+            if (canActivate)
+            {
+                if (stop == true)
+                {
+                    GameState(3);
+                    stop = false;
+                }
+                else
+                {
+                    GameState(4);
+                    stop = true;
+                }
+            }
+            
+        }
+    }
+
+    public void CanActive()
+    {
+        canActivate = true;
+    }
+    public void CantActive()
+    {
+        canActivate = false;
     }
     
     public void GameState(int changeState)
@@ -28,6 +67,8 @@ public class UiManager : MonoBehaviour
                     hud.SetActive(false);
                     break;
                 case 3 :
+                    canActivate = true;
+                    stop = false;
                     Time.timeScale = 1;
                     hud.SetActive(true);
                     options.SetActive(false);
@@ -54,4 +95,10 @@ public class UiManager : MonoBehaviour
                     
             }
         }
+
+    public void LoadMenu()
+    {
+        GameState(3);
+        blackPanel.GetComponent<Animation>().Play();
+    }
 }

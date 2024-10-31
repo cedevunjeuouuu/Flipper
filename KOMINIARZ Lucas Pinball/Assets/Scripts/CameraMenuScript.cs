@@ -9,10 +9,12 @@ public class CameraMenuScript : MonoBehaviour
     [SerializeField] private GameObject canvas1;
     [SerializeField] private GameObject canvas2;
     [SerializeField] private GameObject door;
+    [SerializeField] private GameObject blackPanel;
 
     private void Start()
     {
         canvas1.SetActive(true);
+        blackPanel.GetComponent<Animation>().Play();
     }
 
     public void HideCanvas1()

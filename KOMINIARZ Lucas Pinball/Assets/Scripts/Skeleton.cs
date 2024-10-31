@@ -45,6 +45,9 @@ public class Skeleton : MonoBehaviour
 
     }
 
-    
+    public void Restart()
+    {
+        transform.position = position1;
+    }
     
 }

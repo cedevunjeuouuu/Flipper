@@ -8,7 +8,7 @@ public class SetActive : MonoBehaviour
     [SerializeField] private GameObject blackPlane;
     void Start()
     {
-        blackPlane.GetComponent<Animation>().Play();
+        blackPlane.GetComponent<Animation>().Play("Black Reveal");
         lightsZone2.SetActive(false);
     }
 }

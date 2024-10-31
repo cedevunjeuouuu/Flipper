@@ -12,7 +12,7 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private Vector3 originPosition;
     [SerializeField] private Vector3 originCamPosition;
     [SerializeField] private GameObject gameOver;
-    public StopBall stop;
+    public UiManager stop;
     [SerializeField] private GameObject takeDamage;
     [SerializeField] private Score scoreReference;
     [SerializeField] private GameObject hudScore;
@@ -33,6 +33,7 @@ public class DeathZone : MonoBehaviour
         heart2.SetActive(true);
         heart3.SetActive(true);
         skeleton.skeletonPosition = 0;
+        skeleton.Restart();
         ball.transform.SetPositionAndRotation(originPosition,quaternion.identity);
         ball.GetComponent<Rigidbody>().isKinematic = true;
         ball.GetComponent<Rigidbody>().isKinematic = false;
