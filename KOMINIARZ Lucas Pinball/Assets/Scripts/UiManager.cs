@@ -15,7 +15,6 @@ public class UiManager : MonoBehaviour
     [SerializeField] KeyCode key;
     public bool stop;
     public bool canActivate;
-    [SerializeField] private SetActive setActiveReference;
     [SerializeField] private GameObject blackPanel;
 
     
