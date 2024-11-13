@@ -15,12 +15,18 @@ public class UiManager : MonoBehaviour
     [SerializeField] KeyCode key;
     public bool stop;
     public bool canActivate;
+    [SerializeField] private bool differentLights;
     [SerializeField] private GameObject blackPanel;
+    [SerializeField] private GameObject lights2NdZone;
 
     
     private void Start()
     {
         GameState(3);
+        if (differentLights)
+        {
+            lights2NdZone.SetActive(false);
+        }
     }
 
     void Update()

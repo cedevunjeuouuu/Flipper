@@ -14,6 +14,7 @@ public class AddPointsTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GetComponent<AudioSource>().Play();
         scoreReference.UpdateScore(points);
     }
 }

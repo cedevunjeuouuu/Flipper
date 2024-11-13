@@ -37,6 +37,7 @@ public class ChromaticAberrationTrigger : MonoBehaviour
             trigger1.points *= 2;
             trigger2.points *= 2;
             playerInTrigger = true;
+            GetComponent<AudioSource>().Play();
             StartCoroutine(Aberration());
         }
     }

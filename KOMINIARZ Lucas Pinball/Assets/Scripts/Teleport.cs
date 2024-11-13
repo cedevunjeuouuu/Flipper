@@ -13,11 +13,7 @@ public class Teleport : MonoBehaviour
     [SerializeField] private Vector3 posCam;
     [SerializeField] private Vector3 newPosition1;
     [SerializeField] private GameObject ball;
-
-    private void Start()
-    {
-        lights2.SetActive(false);
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
