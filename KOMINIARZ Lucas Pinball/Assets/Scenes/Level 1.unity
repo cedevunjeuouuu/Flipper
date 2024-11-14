@@ -8572,7 +8572,7 @@ MonoBehaviour:
   lights2: {fileID: 8712300021724968808}
   camera: {fileID: 330585543}
   posCam: {x: 0, y: 0.27, z: -11.15}
-  newPosition1: {x: 6.45, y: -1.33, z: -0.086}
+  newPosition: {x: 6.45, y: -1.02, z: -0.086}
   ball: {fileID: 1151135188}
 --- !u!65 &492809759
 BoxCollider:
@@ -10524,7 +10524,7 @@ MonoBehaviour:
   lights2: {fileID: 1662971634}
   camera: {fileID: 330585543}
   posCam: {x: 23.9, y: 0.2, z: -11.15}
-  newPosition1: {x: 23.948, y: 6.2, z: -0.086}
+  newPosition: {x: 23.93, y: 6.01, z: -0.086}
   ball: {fileID: 1151135188}
 --- !u!65 &576374989
 BoxCollider:
@@ -10664,7 +10664,7 @@ MonoBehaviour:
   lights2: {fileID: 8712300021724968808}
   camera: {fileID: 330585543}
   posCam: {x: 0, y: 0.27, z: -11.15}
-  newPosition1: {x: 6.45, y: -1.33, z: -0.086}
+  newPosition: {x: 0, y: 0, z: 0}
   ball: {fileID: 1151135188}
 --- !u!65 &580786505
 BoxCollider:
@@ -17531,7 +17531,7 @@ MonoBehaviour:
   lights2: {fileID: 8712300021724968808}
   camera: {fileID: 330585543}
   posCam: {x: 0, y: 0.27, z: -11.15}
-  newPosition1: {x: 6.45, y: -1.33, z: -0.086}
+  newPosition: {x: 0, y: 0, z: 0}
   ball: {fileID: 1151135188}
 --- !u!65 &930876417
 BoxCollider:
@@ -27857,7 +27857,7 @@ MonoBehaviour:
   lights2: {fileID: 8712300021724968808}
   camera: {fileID: 330585543}
   posCam: {x: 0, y: 0.27, z: -11.15}
-  newPosition1: {x: 6.45, y: -1.33, z: -0.086}
+  newPosition: {x: 6.45, y: -1.02, z: -0.086}
   ball: {fileID: 1151135188}
 --- !u!65 &1480384728
 BoxCollider:
@@ -32030,7 +32030,7 @@ MonoBehaviour:
   lights2: {fileID: 8712300021724968808}
   camera: {fileID: 330585543}
   posCam: {x: 0, y: 0.27, z: -11.15}
-  newPosition1: {x: 6.45, y: -1.33, z: -0.086}
+  newPosition: {x: 6.45, y: -1.02, z: -0.086}
   ball: {fileID: 1151135188}
 --- !u!65 &1697968034
 BoxCollider:
@@ -33687,7 +33687,7 @@ MonoBehaviour:
   lights2: {fileID: 1662971634}
   camera: {fileID: 330585543}
   posCam: {x: 23.9, y: 0.2, z: -11.15}
-  newPosition1: {x: 26.98, y: 6.2, z: -0.086}
+  newPosition: {x: 26.93, y: 6.01, z: -0.086}
   ball: {fileID: 1151135188}
 --- !u!65 &1804646911
 BoxCollider:
@@ -37446,7 +37446,7 @@ MonoBehaviour:
   lights2: {fileID: 1662971634}
   camera: {fileID: 330585543}
   posCam: {x: 23.9, y: 0.2, z: -11.15}
-  newPosition1: {x: 20.95, y: 6.2, z: -0.086}
+  newPosition: {x: 20.89, y: 6.01, z: -0.086}
   ball: {fileID: 1151135188}
 --- !u!65 &1945025301
 BoxCollider:
