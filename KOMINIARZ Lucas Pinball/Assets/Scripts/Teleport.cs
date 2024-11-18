@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Teleport : MonoBehaviour
 {
@@ -13,9 +14,12 @@ public class Teleport : MonoBehaviour
     [SerializeField] private Vector3 posCam;
     [SerializeField] private Vector3 newPosition;
     [SerializeField] private GameObject ball;
+    
+    
 
     private void OnTriggerEnter(Collider other)
     {
+       
         ball.GetComponent<Rigidbody>().isKinematic = true;
         ball.GetComponent<Rigidbody>().isKinematic = false;
         other.transform.position = newPosition;

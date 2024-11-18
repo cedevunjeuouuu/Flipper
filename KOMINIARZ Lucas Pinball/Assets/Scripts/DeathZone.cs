@@ -21,13 +21,18 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private Vector3 deathZonePosition;
     [SerializeField] private Skeleton skeleton;
     [SerializeField] private GameObject ball;
-        
+    [SerializeField] private bool zone1 = true;
+    [SerializeField] private GameObject lights1StZone;
+    [SerializeField] private GameObject lights2NdZone;
     private void Start()
     {
         scoreReference = FindObjectOfType<Score>();
     }
     public void Restart()
     {
+        
+        lights1StZone.SetActive(true);
+        lights2NdZone.SetActive(false);
         vies = 3;
         heart1.SetActive(true);
         heart2.SetActive(true);
@@ -71,7 +76,14 @@ public class DeathZone : MonoBehaviour
         other.GetComponent<Rigidbody>().isKinematic = false;
         if (vies > 0)
         {
-            camera.GetComponent<Animation>().Play();
+            if (zone1)
+            {
+                camera.GetComponent<Animation>().Play("CameraShake");
+            }
+            else
+            {
+                camera.GetComponent<Animation>().Play("CameraShake2ndZone");
+            }
             StartCoroutine(ShowDamageEffect());
         }
         
