@@ -23,6 +23,7 @@ public class HeartAndDeathZoneTp : MonoBehaviour
             heart2.transform.position = newPositionHeart2;
             heart3.transform.position = newPositionHeart3;
             deathZone.transform.position = newPositionDeathZone;
+            deathZone.GetComponent<DeathZoneLv2>().firstZone = false;
         }
     }
 }

@@ -3538,7 +3538,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!82 &176977669
@@ -3948,6 +3948,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 523271613}
     m_Modifications:
+    - target: {fileID: 967957998026983565, guid: fa36db786fa3c0c40ac7f8c6fb8b977c,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 967957998026983565, guid: fa36db786fa3c0c40ac7f8c6fb8b977c,
         type: 3}
       propertyPath: m_CollisionDetection
@@ -9945,9 +9950,10 @@ MonoBehaviour:
   hudScore: {fileID: 1543434571}
   camera: {fileID: 330585543}
   uiManagerReference: {fileID: 1921123751}
-  deathZonePosition: {x: 0.01, y: -6.45, z: 0.047}
   skeleton: {fileID: 749476051271431181}
   ball: {fileID: 1151135188}
+  lights1StZone: {fileID: 8712300021724968808}
+  lights2NdZone: {fileID: 1662971634}
 --- !u!82 &539124191
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15739,7 +15745,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!82 &813345305
@@ -17531,7 +17537,7 @@ MonoBehaviour:
   lights2: {fileID: 8712300021724968808}
   camera: {fileID: 330585543}
   posCam: {x: 0, y: 0.27, z: -11.15}
-  newPosition: {x: 0, y: 0, z: 0}
+  newPosition: {x: 6.45, y: -1.37, z: -0.086}
   ball: {fileID: 1151135188}
 --- !u!65 &930876417
 BoxCollider:
@@ -26066,7 +26072,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!4 &1377451213
@@ -42398,6 +42404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4109705615144227689, guid: e5b64690c89d0f54db5c83cccc0c7365,
         type: 3}
+      propertyPath: m_Interpolate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109705615144227689, guid: e5b64690c89d0f54db5c83cccc0c7365,
+        type: 3}
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
@@ -43298,6 +43309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 967957998026983565, guid: fa36db786fa3c0c40ac7f8c6fb8b977c,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 967957998026983565, guid: fa36db786fa3c0c40ac7f8c6fb8b977c,
         type: 3}

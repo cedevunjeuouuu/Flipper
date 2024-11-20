@@ -18,10 +18,8 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private GameObject hudScore;
     [SerializeField] private new GameObject camera;
     [SerializeField] private UiManager uiManagerReference;
-    [SerializeField] private Vector3 deathZonePosition;
     [SerializeField] private Skeleton skeleton;
     [SerializeField] private GameObject ball;
-    [SerializeField] private bool zone1 = true;
     [SerializeField] private GameObject lights1StZone;
     [SerializeField] private GameObject lights2NdZone;
     private void Start()
@@ -76,14 +74,7 @@ public class DeathZone : MonoBehaviour
         other.GetComponent<Rigidbody>().isKinematic = false;
         if (vies > 0)
         {
-            if (zone1)
-            {
-                camera.GetComponent<Animation>().Play("CameraShake");
-            }
-            else
-            {
-                camera.GetComponent<Animation>().Play("CameraShake2ndZone");
-            }
+            camera.GetComponent<Animation>().Play("CameraShake");
             StartCoroutine(ShowDamageEffect());
         }
         
