@@ -3491,7 +3491,7 @@ HingeJoint:
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
-    spring: 9000
+    spring: 7500
     damper: 0
     targetPosition: 0
   m_UseMotor: 0
@@ -3967,6 +3967,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534830811204095551, guid: fa36db786fa3c0c40ac7f8c6fb8b977c,
+        type: 3}
+      propertyPath: m_Spring.spring
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 8922366485099312736, guid: fa36db786fa3c0c40ac7f8c6fb8b977c,
         type: 3}
@@ -15698,7 +15703,7 @@ HingeJoint:
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
-    spring: 8000
+    spring: 5500
     damper: 0
     targetPosition: 0
   m_UseMotor: 0
@@ -26025,7 +26030,7 @@ HingeJoint:
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
-    spring: 2000
+    spring: 1800
     damper: 0
     targetPosition: 0
   m_UseMotor: 0
@@ -43353,7 +43358,7 @@ PrefabInstance:
     - target: {fileID: 6534830811204095551, guid: fa36db786fa3c0c40ac7f8c6fb8b977c,
         type: 3}
       propertyPath: m_Spring.spring
-      value: 8000
+      value: 5500
       objectReference: {fileID: 0}
     - target: {fileID: 8922366485099312736, guid: fa36db786fa3c0c40ac7f8c6fb8b977c,
         type: 3}
