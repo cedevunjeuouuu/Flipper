@@ -17,14 +17,13 @@ public class BoatTrigger : MonoBehaviour
     {
         waterInBoat++;
         waterPlaneZAxis -= 0.4f;
-        Vector3 newPosition = new Vector3(0, 0, Mathf.Clamp(waterPlaneZAxis + 0.4f, waterPlaneZAxis, waterPlaneZAxis + 0.4f));
+        Vector3 newPosition = new Vector3(0, 0, Mathf.Clamp(waterPlaneZAxis - 0.4f, waterPlaneZAxis, waterPlaneZAxis - 0.4f));
         StartCoroutine(MoveWaterPlane(waterPlane.transform, newPosition, 1f));
         sliderWater.value = waterInBoat;
         if (waterInBoat >= holdCapacity)
         {
             uiManagerReference.GameState(5);
         }
-        Debug.Log(waterPlaneZAxis);
     }
     public void RemoveWater()
     {
@@ -32,7 +31,7 @@ public class BoatTrigger : MonoBehaviour
         {
             waterInBoat--; 
             waterPlaneZAxis += 0.4f;
-            Vector3 newPosition = waterPlane.transform.position + new Vector3(0, 0, -0.4f);
+            Vector3 newPosition = waterPlane.transform.position + new Vector3(0, 0, +0.4f);
             StartCoroutine(MoveWaterPlane(waterPlane.transform, newPosition, 1f));
             sliderWater.GetComponent<Slider>().value = waterInBoat;
         }
