@@ -13,6 +13,7 @@ public class BoatTrigger : MonoBehaviour
     [SerializeField] private GameObject waterPlane;
     private float waterPlaneZAxis = 0.4f;
     private bool isMoving = false;
+    
     private void OnTriggerEnter(Collider other)
     {
         waterInBoat++;

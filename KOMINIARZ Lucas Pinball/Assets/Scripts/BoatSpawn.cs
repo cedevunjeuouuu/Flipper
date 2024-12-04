@@ -5,16 +5,31 @@ using UnityEngine;
 public class BoatSpawn : MonoBehaviour
 {
     [SerializeField] private GameObject boat;
-    private bool canSpawn;
+    [SerializeField] private int timeToWait = 15;
+    private bool canSpawn = false;
     private int spawnCount;
     private void Start()
     {
-        Spawn();
+        Instantiate(boat);
     }
     void Spawn()
     {
-        Instantiate(boat);
+        if (canSpawn && timeToWait - spawnCount<=0)
+        {
+            Instantiate(boat);
+            
+        }
+        else if (canSpawn)
+        {
+            StartCoroutine(SpawnBoatAfterTime());
+        }
+    }
+
+    IEnumerator SpawnBoatAfterTime()
+    {
+        yield return new WaitForSeconds(timeToWait - spawnCount);
         spawnCount++;
+        Instantiate(boat);
     }
     public void CantSpawn()
     {
