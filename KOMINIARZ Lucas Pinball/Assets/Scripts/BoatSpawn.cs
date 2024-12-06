@@ -6,24 +6,35 @@ public class BoatSpawn : MonoBehaviour
 {
     [SerializeField] private GameObject boat;
     [SerializeField] private int timeToWait = 15;
-    private bool canSpawn = false;
+    [SerializeField] private int timeBeforeFirstSpawn;
     private int spawnCount;
     private void Start()
     {
+        StartCoroutine(FirstSpawn()); 
+    }
+    IEnumerator FirstSpawn()
+    {
+        yield return new WaitForSeconds(timeBeforeFirstSpawn);
         Instantiate(boat);
     }
-    void Spawn()
+    public void Spawn()
     {
-        if (canSpawn && timeToWait - spawnCount<=0)
+        if (timeToWait - spawnCount<=2)
         {
-            Instantiate(boat);
-            
+            StartCoroutine(ContinueSpawn());
+
         }
-        else if (canSpawn)
+        else
         {
             StartCoroutine(SpawnBoatAfterTime());
         }
     }
+    IEnumerator ContinueSpawn()
+    {
+        yield return new WaitForSeconds(2f);
+        Instantiate(boat);
+    }
+
 
     IEnumerator SpawnBoatAfterTime()
     {
@@ -31,13 +42,6 @@ public class BoatSpawn : MonoBehaviour
         spawnCount++;
         Instantiate(boat);
     }
-    public void CantSpawn()
-    {
-        canSpawn = false;
-    }
-    public void CanSpawn()
-    {
-        canSpawn = true;
-    }
+
     
 }
