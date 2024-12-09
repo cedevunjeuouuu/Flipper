@@ -16,6 +16,11 @@ public class BoatTrigger : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        AddWater();
+    }
+
+    public void AddWater()
+    {
         waterInBoat++;
         waterPlaneZAxis -= 0.4f;
         Vector3 newPosition = new Vector3(0, 0, Mathf.Clamp(waterPlaneZAxis - 0.4f, waterPlaneZAxis, waterPlaneZAxis - 0.4f));
