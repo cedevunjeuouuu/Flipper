@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathZoneLv2 : MonoBehaviour
 {
-    private int vies = 3;
+    public int vies = 3;
     [SerializeField] private GameObject heart1;
     [SerializeField] private GameObject heart2;
     [SerializeField] private GameObject heart3;
