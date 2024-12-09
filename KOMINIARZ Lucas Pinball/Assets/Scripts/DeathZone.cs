@@ -9,12 +9,13 @@ public class DeathZone : MonoBehaviour
     [SerializeField] private GameObject heart1;
     [SerializeField] private GameObject heart2;
     [SerializeField] private GameObject heart3;
-    [SerializeField] private Vector3 originPosition;
-    [SerializeField] private GameObject gameOver;
+    public Vector3 originPosition;
     public UiManager stop;
     [SerializeField] private GameObject takeDamage;
     [SerializeField] private new GameObject camera;
     [SerializeField] private UiManager uiManagerReference;
+    [SerializeField] private bool isLevel2;
+    public bool firstZone = true;
     private void OnTriggerEnter(Collider other)
     {
         GetComponent<AudioSource>().Play();
@@ -43,17 +44,30 @@ public class DeathZone : MonoBehaviour
         other.GetComponent<Rigidbody>().isKinematic = false;
         if (vies > 0)
         {
-            camera.GetComponent<Animation>().Play("CameraShake");
-            StartCoroutine(ShowDamageEffect());
+            if (isLevel2)
+            {
+                if (firstZone)
+                {
+                    camera.GetComponent<Animation>().Play("CameraShake");
+                }
+                else
+                {
+                    camera.GetComponent<Animation>().Play("CameraShake2ndZone");
+                }
+                StartCoroutine(ShowDamageEffect());
+            }
+            else
+            {
+                camera.GetComponent<Animation>().Play("CameraShake");
+                StartCoroutine(ShowDamageEffect());
+            }
         }
-        
+
         IEnumerator ShowDamageEffect()
         {
             takeDamage.SetActive(true);
             yield return new WaitForSeconds(0.2f);
             takeDamage.SetActive(false);
         }
-
-
     }
 }

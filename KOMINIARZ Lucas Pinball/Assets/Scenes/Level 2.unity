@@ -3571,7 +3571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Effects
+  m_text: Sounds
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f017e8c3343e4943a27da91cc3f72dc, type: 2}
   m_sharedMaterial: {fileID: -7620117525075340036, guid: 7f017e8c3343e4943a27da91cc3f72dc,
@@ -14283,8 +14283,8 @@ GameObject:
   - component: {fileID: 1077998255}
   - component: {fileID: 1077998254}
   - component: {fileID: 1077998253}
-  - component: {fileID: 1077998257}
   - component: {fileID: 1077998252}
+  - component: {fileID: 1077998257}
   m_Layer: 0
   m_Name: Death Zone
   m_TagString: Untagged
@@ -14483,34 +14483,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1077998250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8a3e8ecfe17c3442a85c59cb486ae0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b9fa2b44ad71bc47af0c064792ea67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vies: 3
   heart1: {fileID: 1620531563}
   heart2: {fileID: 546355239}
   heart3: {fileID: 760124736}
-  heart1OriginPosition: {x: -6.436, y: 3.766, z: -1}
-  heart2OriginPosition: {x: -5.01, y: 3.11, z: -1.7}
-  heart3OriginPosition: {x: -4.66, y: 2.212, z: -1.69}
   originPosition: {x: 8.77, y: 1.638, z: 0.035}
-  originPositionCopy: {x: 8.77, y: 1.638, z: 0.035}
-  originCamPosition: {x: 0, y: 0.27, z: -11.15}
-  gameOver: {fileID: 687653035}
   stop: {fileID: 2013812859}
   takeDamage: {fileID: 1240902612}
-  scoreReference: {fileID: 2013812860}
-  hudScore: {fileID: 904597756}
   camera: {fileID: 658241424}
   uiManagerReference: {fileID: 2013812859}
-  deathZonePosition: {x: 0.01, y: -6.45, z: 0.047}
-  skeleton: {fileID: 451529183}
-  ball: {fileID: 1188090605}
+  isLevel2: 1
   firstZone: 1
-  lights1StZone: {fileID: 1842678651}
-  lights2NdZone: {fileID: 231444850}
-  deathZoneOriginPosition: {x: 0.83, y: -6.45, z: 0.05}
-  cannonReference: {fileID: 1559820749}
-  boatLife: 3
 --- !u!1 &1078683870 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ed75b99c26237b4d844c1581c5da1b2,
@@ -17116,9 +17102,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1077998257}
-        m_TargetAssemblyTypeName: DeathZoneLv2, Assembly-CSharp
-        m_MethodName: Restart
+      - m_Target: {fileID: 2013812861}
+        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22653,9 +22639,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1077998257}
-        m_TargetAssemblyTypeName: DeathZoneLv2, Assembly-CSharp
-        m_MethodName: Restart
+      - m_Target: {fileID: 2013812861}
+        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26196,6 +26182,7 @@ GameObject:
   - component: {fileID: 2013812858}
   - component: {fileID: 2013812860}
   - component: {fileID: 2013812859}
+  - component: {fileID: 2013812861}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -26257,6 +26244,38 @@ MonoBehaviour:
   scoreGameOver: {fileID: 320406411}
   canActive: 0
   score: 0
+--- !u!114 &2013812861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013812857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a959e3afb60674ea8201836e0d1f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heart1: {fileID: 1620531563}
+  heart2: {fileID: 546355239}
+  heart3: {fileID: 760124736}
+  originPosition: {x: 8.77, y: 1.638, z: 0.035}
+  originCamPosition: {x: 0, y: 0.27, z: -11.15}
+  scoreReference: {fileID: 2013812860}
+  camera: {fileID: 658241424}
+  uiManagerReference: {fileID: 2013812859}
+  skeleton: {fileID: 451529183}
+  ball: {fileID: 1188090605}
+  lights1StZone: {fileID: 1842678651}
+  lights2NdZone: {fileID: 231444850}
+  deathZoneReference: {fileID: 1077998257}
+  isLevel2: 1
+  heart1OriginPosition: {x: -6.436, y: 3.766, z: -1}
+  heart2OriginPosition: {x: -5.01, y: 3.11, z: -1.7}
+  heart3OriginPosition: {x: -4.66, y: 2.212, z: -1.69}
+  deathZoneOriginPosition: {x: 0.83, y: -6.45, z: 0.05}
+  cannonReference: {fileID: 1559820749}
+  boatLife: 3
 --- !u!1001 &2021556927
 PrefabInstance:
   m_ObjectHideFlags: 0

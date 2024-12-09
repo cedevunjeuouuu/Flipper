@@ -11,7 +11,6 @@ public class Restart : MonoBehaviour
     [SerializeField] private Vector3 originPosition;
     [SerializeField] private Vector3 originCamPosition;
     [SerializeField] private Score scoreReference;
-    [SerializeField] private GameObject hudScore;
     [SerializeField] private new GameObject camera;
     [SerializeField] private UiManager uiManagerReference;
     [SerializeField] private Skeleton skeleton;
@@ -19,12 +18,33 @@ public class Restart : MonoBehaviour
     [SerializeField] private GameObject lights1StZone;
     [SerializeField] private GameObject lights2NdZone;
     [SerializeField] private DeathZone deathZoneReference;
+    // variables propres au niveau 2
+    [SerializeField] private bool isLevel2;
+    private Vector3 originPositionCopy;
+    [SerializeField] private Vector3 heart1OriginPosition;
+    [SerializeField] private Vector3 heart2OriginPosition;
+    [SerializeField] private Vector3 heart3OriginPosition;
+    [SerializeField] private Vector3 deathZoneOriginPosition;
+    [SerializeField] private CannonScriptLv2 cannonReference;
+    [SerializeField] private int boatLife;
     private void Start()
     {
         scoreReference = FindObjectOfType<Score>();
+        originPositionCopy = originPosition;
     }
     public void RestartButton()
     {
+        if (isLevel2)
+        {
+            originPosition = originPositionCopy;
+            heart1.transform.position = heart1OriginPosition;
+            heart2.transform.position = heart2OriginPosition;
+            heart3.transform.position = heart3OriginPosition;
+            deathZoneReference.originPosition = originPositionCopy;
+            deathZoneReference.firstZone = true;
+            cannonReference.ChangeLife(boatLife);
+            deathZoneReference.transform.position = deathZoneOriginPosition;
+        }
         deathZoneReference.vies = 3;
         lights1StZone.SetActive(true);
         lights2NdZone.SetActive(false);
