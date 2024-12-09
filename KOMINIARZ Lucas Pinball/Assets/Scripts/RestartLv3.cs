@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class RestartLv3 : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject ball;
+    [SerializeField] private Vector3 originPosition;
+    [SerializeField] private GameObject light1StZone;
+    [SerializeField] private GameObject lights2NdZone;
+    [SerializeField] private BoatTrigger boatTriggerReference;
+    [SerializeField] private BoatSpawn spawnRight;
+    [SerializeField] private BoatSpawn spawnLeft;
+    [SerializeField] private int timeSpawnRight;
+    [SerializeField] private int timeSpawnLeft;
     void Start()
     {
         
