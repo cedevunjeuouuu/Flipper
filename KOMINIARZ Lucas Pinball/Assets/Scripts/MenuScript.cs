@@ -18,6 +18,10 @@ public class MenuScript : MonoBehaviour
     {
         cam.GetComponent<Animation>().Play("Anim Go To Level 3");
     }
+    public void LoadCredits()
+    {
+        cam.GetComponent<Animation>().Play("Anim Go To Credits");
+    }
     
     public void ButtonBack()
     {

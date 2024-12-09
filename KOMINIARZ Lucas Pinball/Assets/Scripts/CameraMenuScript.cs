@@ -50,4 +50,8 @@ public class CameraMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("Level 3");
     }
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }
