@@ -26520,7 +26520,7 @@ MonoBehaviour:
   heart2OriginPosition: {x: -5.01, y: 3.11, z: -1.7}
   heart3OriginPosition: {x: -4.66, y: 2.212, z: -1.69}
   deathZoneOriginPosition: {x: 0.83, y: -6.45, z: 0.05}
-  cannonReference: {fileID: 0}
+  cannonReference: {fileID: 1223381207}
   boatLife: 3
 --- !u!1001 &2021556927
 PrefabInstance:
