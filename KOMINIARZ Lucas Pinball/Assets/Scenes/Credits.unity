@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jules.Francois_fr
+  m_text: Jules.Francois
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6eba91be4d721154286a192291eb8b04, type: 2}
   m_sharedMaterial: {fileID: -6024775316075954124, guid: 6eba91be4d721154286a192291eb8b04,

@@ -4698,7 +4698,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2029587942}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayDelayed
+        m_MethodName: set_volume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
