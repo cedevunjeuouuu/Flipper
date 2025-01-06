@@ -9,16 +9,17 @@ public class BoatTrigger : MonoBehaviour
     public int waterInBoat = 0;
     private int holdCapacity = 5;
     [SerializeField] private UiManager uiManagerReference;
-    [SerializeField] private Slider sliderWater;
-    [SerializeField] private GameObject waterPlane;
-    private float waterPlaneZAxis = 0.4f;
+    public Slider sliderWater;
+    public GameObject waterPlane;
+    public float waterPlaneZAxis = 0.4f;
+    public Vector3 waterOriginPosition;
     private bool isMoving = false;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         AddWater();
     }
-
+    
     public void AddWater()
     {
         waterInBoat++;
@@ -40,6 +41,10 @@ public class BoatTrigger : MonoBehaviour
             Vector3 newPosition = waterPlane.transform.position + new Vector3(0, 0, +0.4f);
             StartCoroutine(MoveWaterPlane(waterPlane.transform, newPosition, 1f));
             sliderWater.GetComponent<Slider>().value = waterInBoat;
+        }
+        else if (waterInBoat == 0)
+        {
+            waterPlane.transform.position = waterOriginPosition;
         }
     }
     private IEnumerator MoveWaterPlane(Transform obj, Vector3 targetPosition, float duration)

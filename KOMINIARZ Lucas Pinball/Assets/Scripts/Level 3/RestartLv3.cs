@@ -16,12 +16,20 @@ public class RestartLv3 : MonoBehaviour
     [SerializeField] private GameObject cam;
     [SerializeField] private Vector3 originCamPosition;
     [SerializeField] private Quaternion originCamRotation;
+    [SerializeField] private UiManager uiManagerReference;
+    [SerializeField] private float waterOriginalZAxis;
+    [SerializeField] private Score scoreReference;
     public void Restart()
     {
         StartCoroutine(ResetBall());
         light1StZone.SetActive(true);  
         lights2NdZone.SetActive(false);
-        boatTriggerReference.waterInBoat = 1;
+        scoreReference.score = 0;
+        scoreReference.UpdateScore(0);
+        boatTriggerReference.waterInBoat = 0;
+        boatTriggerReference.sliderWater.value = 0f;
+        boatTriggerReference.waterPlane.transform.position = boatTriggerReference.waterOriginPosition;
+        boatTriggerReference.waterPlaneZAxis = waterOriginalZAxis;
         boatTriggerReference.RemoveWater();
         cam.transform.SetPositionAndRotation(originCamPosition, originCamRotation);
         spawnRight.timeToWait = timeSpawnRight;
@@ -31,6 +39,7 @@ public class RestartLv3 : MonoBehaviour
         {
             Destroy(boat.gameObject);
         }
+        uiManagerReference.GameState(3);
         
     }
     private IEnumerator ResetBall()

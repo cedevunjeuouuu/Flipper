@@ -9535,6 +9535,8 @@ MonoBehaviour:
   uiManagerReference: {fileID: 846374584}
   sliderWater: {fileID: 1367597325}
   waterPlane: {fileID: 496374915}
+  waterPlaneZAxis: 0.4
+  waterOriginPosition: {x: 0, y: 0, z: 0.4}
 --- !u!1001 &595061592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13097,6 +13099,9 @@ MonoBehaviour:
   cam: {fileID: 543259873}
   originCamPosition: {x: 0.064, y: -2.13, z: -13}
   originCamRotation: {x: 0, y: 0, z: 0, w: 0}
+  uiManagerReference: {fileID: 846374584}
+  waterOriginalZAxis: 0.4
+  scoreReference: {fileID: 0}
 --- !u!1001 &852870347
 PrefabInstance:
   m_ObjectHideFlags: 0
